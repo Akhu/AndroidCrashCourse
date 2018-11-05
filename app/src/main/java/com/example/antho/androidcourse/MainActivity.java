@@ -43,9 +43,19 @@ public class MainActivity extends AppCompatActivity {
     public void gotoActivity(View view) {
         Log.v(LOG_TAG, String.valueOf(view.getId()));
 
-        Intent intent = new Intent(this, ScrollTextActivity.class);
+        switch (getResources().getResourceEntryName(view.getId())){
+            case "button_data_activity":
+                Intent intent = new Intent(this, DataPassActivity.class);
+                startActivity(intent);
+                break;
+            case "button_scroll_activity":
+                Intent intent2 = new Intent(this, ScrollTextActivity.class);
+                startActivity(intent2);
+                break;
+            default:
+                    break;
+        }
 
 
-        startActivity(intent);
     }
 }
