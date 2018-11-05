@@ -1,8 +1,10 @@
 package com.example.antho.androidcourse;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -11,6 +13,8 @@ public class MainActivity extends AppCompatActivity {
 
     private int mCount = 0;
     private TextView mShowCount;
+
+    final static String LOG_TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,5 +37,15 @@ public class MainActivity extends AppCompatActivity {
         if(mShowCount != null){
             mShowCount.setText(Integer.toString(mCount));
         }
+    }
+
+
+    public void gotoActivity(View view) {
+        Log.v(LOG_TAG, String.valueOf(view.getId()));
+
+        Intent intent = new Intent(this, ScrollTextActivity.class);
+
+
+        startActivity(intent);
     }
 }
