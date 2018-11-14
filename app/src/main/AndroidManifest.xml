@@ -18,16 +18,15 @@
         </activity>
         <activity android:name=".ScrollTextActivity" />
         <activity android:name=".DataPassActivity" />
-
-        <activity android:name=".DataReceiverActivity"
-                  android:label = "Data Receiver Activity"
-                 android:parentActivityName=".MainActivity"
-            >
+        <activity
+            android:name=".DataReceiverActivity"
+            android:label="Data Receiver Activity"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
-
+                android:value=".MainActivity" />
         </activity>
+        <activity android:name=".ImplicitIntentActivity"></activity>
     </application>
 
 </manifest>

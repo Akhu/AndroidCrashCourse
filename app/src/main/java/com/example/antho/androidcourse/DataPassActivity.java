@@ -1,6 +1,7 @@
 package com.example.antho.androidcourse;
 
 import android.content.Intent;
+import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,7 +29,6 @@ public class DataPassActivity extends AppCompatActivity {
         setContentView(R.layout.activity_data_pass);
 
         mMessageEditText = findViewById(R.id.edit_text_long_message);
-
         mReplyHeadTextView = findViewById(R.id.text_header_reply);
         mReplyTextView = findViewById(R.id.text_message_reply);
     }
@@ -41,6 +41,23 @@ public class DataPassActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_MESSAGE, message);
 
         startActivityForResult(intent, TEXT_REQUEST);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+        if (mReplyHeadTextView.getVisibility() == View.VISIBLE){
+            outState.putBoolean("reply_visible", true);
+            outState.putString("reply_text", mReplyHeadTextView.getText().toString());
+        }
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mMessageEditText = findViewById(R.id.edit_text_long_message);
+        mReplyHeadTextView = findViewById(R.id.text_header_reply);
+        mReplyTextView = findViewById(R.id.text_message_reply);
     }
 
     @Override

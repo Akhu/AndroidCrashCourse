@@ -22,6 +22,37 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mShowCount = (TextView) findViewById(R.id.show_count); //Binding view and variable
+
+        Log.d(LOG_TAG, "-------");
+        Log.d(LOG_TAG, "onCreate");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(LOG_TAG, "-------");
+        Log.d(LOG_TAG, "onStart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(LOG_TAG, "-------");
+        Log.d(LOG_TAG, "onResume");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(LOG_TAG, "-------");
+        Log.d(LOG_TAG, "onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(LOG_TAG, "-------");
+        Log.d(LOG_TAG, "onDestroy");
     }
 
     public void showToast(View view) {
@@ -57,5 +88,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+    }
+
+    /**
+     * Go to the Test Activity view
+     * @param view
+     */
+    public void gotoTest(View view) {
+        Intent intent = new Intent(this, ImplicitIntentActivity.class);
+
+        startActivity(intent);
     }
 }
